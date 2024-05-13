@@ -1,0 +1,3 @@
+There is a criticism that the harmonic mean procedure does not work well if at least one of th MCMC sample comes from th low probability region. (example value:exp(-100))  i.e. bad sample.
+In that case the Harmonic mean is unstable. Fortunately for the analysis we have conducted on vcg dataset, the above mentionned type of difficulty doesnot arise. The figures are plots of 
+log likelihood for different MCMC sample.  Observe from plot that the probabilities are well away from zero. P(Data| parameterSample1) , ..., P(Data| parameterSample_McLen).    

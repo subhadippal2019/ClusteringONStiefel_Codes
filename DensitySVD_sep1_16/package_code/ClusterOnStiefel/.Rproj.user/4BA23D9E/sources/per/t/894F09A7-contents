@@ -1,0 +1,11 @@
+Package: ClusterOnStiefel
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1
+Date: 2016-10-30
+Author: Who wrote it
+Maintainer: Who to complain to <yourfault@somewhere.net>
+Description: gsl, Rcpp
+License: What license is it under?
+LazyData: TRUE
+RoxygenNote: 7.1.1

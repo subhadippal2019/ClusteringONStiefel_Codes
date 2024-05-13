@@ -1,0 +1,1402 @@
+
+R version 3.4.0 (2017-04-21) -- "You Stupid Darkness"
+Copyright (C) 2017 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> 
+> 
+> #R CMD BATCH --no-save --no-restore '--args ./real_DTI_data.Rdata 6' ./runAllCode_real.R ./run_real_14206_100.log
+> #R CMD BATCH --no-save --no-restore '--args ./nec_175_data.Rdata 6' ./runAllCode_real_NEC.R ./run_real_nec_175.log
+> 
+> rm(list=ls(all=TRUE))
+> 
+> args <- commandArgs(TRUE)
+> source("finiteMixtureML.R")
+> set.seed(77357)
+> 
+> #L = generate_simulated_data_ML(N=300)
+> load(args[1])
+> n_clust_to_run = as.numeric(args[2])
+> 
+> for(i in 3:n_clust_to_run){
++   
++   nClust = i
++ 
++   #true_nClust = strsplit(args[[1]],"[_.]")[[1]][4]
++   #data_id = 12345
++  
++   ##data,nc,max_iter=2,run_id=1 
++   #finiteMixtureML <- function(data,nc,true_nc,max_iter=2,run_id=1,output_file){
++   
++   #out_file_name = sprintf("output_nclust_%d_realDTI_%d.RData",nClust,data_id)
++   #out_file_name = sprintf("../RealData/NEO/output/output_nclust_%d_realNEO_%d.RData",nClust,data_id)
++   out_file_name = sprintf("../RealData/NEC/output/july27_output_nclust_%d_realNEC.RData",nClust)
++   
++   #data_with_MCMC_sample = finiteMixtureML(data=neo_192,nClust,nClust,max_iter=1000,run_id=as.numeric(data_id),output_file = out_file_name)
++   data_with_MCMC_sample = finiteMixtureML(data=nec_175,nClust,nClust,max_iter=2000,run_id=as.numeric(data_id),output_file = out_file_name)
++   
++   
++   #data_with_MCMC_sample = NULL
++   #L = neo_192
++   #data_with_MCMC_sample$L = L
++   #data_with_MCMC_sample$MCMC_sample = MCMC_sample
++   save(data_with_MCMC_sample,file=out_file_name)
++   #load("MCMC_sample.Rdata")
++   #analyse_MCMC_sample(MCMC_sample)
++   #plot_mcmc_sample_D(MCMC_sample,L)
++   
++ }  
+[1] "Fri Jul 28 16:15:45 2017"
+Loading required package: Matrix
+
+Attaching package: ‘expm’
+
+The following object is masked from ‘package:Matrix’:
+
+    expm
+
+[1] "inside bivariate NR method for updating d1 and d2"
+[1] 27.55021  8.71960
+[1] "inside bivariate NR method for updating d1 and d2"
+[1] 5.3421417 0.8334814
+[1] "inside bivariate NR method for updating d1 and d2"
+[1] 15.538426  0.293452
+[1] "Fri Jul 28 16:15:47 2017"
+[1] "using vague hyper-parameters"
+[1] 85 44 46
+[1] 46.53149
+[1] "cluster update done for 1"
+[1] 4.014136
+[1] "cluster update done for 2"
+[1] 14.50037
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 1"
+Time difference of 4.052393 secs
+[1] 75 54 46
+[1] 138.2858
+[1] "cluster update done for 1"
+[1] 4.857524
+[1] "cluster update done for 2"
+[1] 13.47188
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 2"
+Time difference of 5.649991 secs
+[1] 70 59 46
+[1] 188.3767
+[1] "cluster update done for 1"
+[1] 4.871334
+[1] "cluster update done for 2"
+[1] 13.88563
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 3"
+Time difference of 5.424217 secs
+[1] 72 57 46
+[1] 157.279
+[1] "cluster update done for 1"
+[1] 5.026196
+[1] "cluster update done for 2"
+[1] 14.3821
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 4"
+Time difference of 7.340894 secs
+[1] 71 58 46
+[1] 183.8423
+[1] "cluster update done for 1"
+[1] 5.09943
+[1] "cluster update done for 2"
+[1] 14.18724
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 5"
+Time difference of 6.331247 secs
+[1] 72 57 46
+[1] 169.6524
+[1] "cluster update done for 1"
+[1] 5.28626
+[1] "cluster update done for 2"
+[1] 13.84733
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 6"
+Time difference of 4.694539 secs
+[1] 72 57 46
+[1] 164.6282
+[1] "cluster update done for 1"
+[1] 5.165403
+[1] "cluster update done for 2"
+[1] 13.96093
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 7"
+Time difference of 6.67439 secs
+[1] 71 58 46
+[1] 172.5678
+[1] "cluster update done for 1"
+[1] 5.249617
+[1] "cluster update done for 2"
+[1] 13.22009
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 8"
+Time difference of 9.623421 secs
+[1] 72 57 46
+[1] 169.1665
+[1] "cluster update done for 1"
+[1] 5.257912
+[1] "cluster update done for 2"
+[1] 13.79357
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 9"
+Time difference of 7.180278 secs
+[1] "MCMC main iter = 10"
+[1] 71 58 46
+[1] 179.531
+[1] "cluster update done for 1"
+[1] 5.327964
+[1] "cluster update done for 2"
+[1] 14.27693
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 10"
+Time difference of 5.97879 secs
+[1] 72 57 46
+[1] 166.8032
+[1] "cluster update done for 1"
+[1] 5.286878
+[1] "cluster update done for 2"
+[1] 14.21987
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 11"
+Time difference of 6.840329 secs
+[1] 72 57 46
+[1] 169.8495
+[1] "cluster update done for 1"
+[1] 5.214155
+[1] "cluster update done for 2"
+[1] 14.05955
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 12"
+Time difference of 6.898691 secs
+[1] 71 58 46
+[1] 188.7472
+[1] "cluster update done for 1"
+[1] 5.096674
+[1] "cluster update done for 2"
+[1] 13.87692
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 13"
+Time difference of 5.312805 secs
+[1] 71 58 46
+[1] 183.2676
+[1] "cluster update done for 1"
+[1] 4.917475
+[1] "cluster update done for 2"
+[1] 13.74177
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 14"
+Time difference of 7.603963 secs
+[1] 71 58 46
+[1] 189.5116
+[1] "cluster update done for 1"
+[1] 5.161263
+[1] "cluster update done for 2"
+[1] 14.30848
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 15"
+Time difference of 5.360884 secs
+[1] 71 58 46
+[1] 179.4236
+[1] "cluster update done for 1"
+[1] 5.018945
+[1] "cluster update done for 2"
+[1] 13.7274
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 16"
+Time difference of 5.692904 secs
+[1] 71 58 46
+[1] 184.976
+[1] "cluster update done for 1"
+[1] 5.33126
+[1] "cluster update done for 2"
+[1] 13.53994
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 17"
+Time difference of 4.812313 secs
+[1] 71 58 46
+[1] 181.8952
+[1] "cluster update done for 1"
+[1] 5.230761
+[1] "cluster update done for 2"
+[1] 14.37589
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 18"
+Time difference of 4.840977 secs
+[1] 71 58 46
+[1] 167.531
+[1] "cluster update done for 1"
+[1] 5.056256
+[1] "cluster update done for 2"
+[1] 14.40398
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 19"
+Time difference of 4.838928 secs
+[1] "MCMC main iter = 20"
+[1] 71 58 46
+[1] 187.2638
+[1] "cluster update done for 1"
+[1] 5.171572
+[1] "cluster update done for 2"
+[1] 14.45983
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 20"
+Time difference of 7.263974 secs
+[1] 70 59 46
+[1] 190.4109
+[1] "cluster update done for 1"
+[1] 5.120497
+[1] "cluster update done for 2"
+[1] 14.22166
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 21"
+Time difference of 10.07361 secs
+[1] 72 57 46
+[1] 166.8919
+[1] "cluster update done for 1"
+[1] 5.208984
+[1] "cluster update done for 2"
+[1] 14.28644
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 22"
+Time difference of 16.1476 secs
+[1] 72 57 46
+[1] 168.6571
+[1] "cluster update done for 1"
+[1] 4.941852
+[1] "cluster update done for 2"
+[1] 14.25118
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 23"
+Time difference of 14.92934 secs
+[1] 72 56 47
+[1] 155.2006
+[1] "cluster update done for 1"
+[1] 5.352181
+[1] "cluster update done for 2"
+[1] 11.76342
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 24"
+Time difference of 6.044002 secs
+[1] 72 57 46
+[1] 155.5593
+[1] "cluster update done for 1"
+[1] 5.14259
+[1] "cluster update done for 2"
+[1] 14.22191
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 25"
+Time difference of 5.237915 secs
+[1] 71 58 46
+[1] 187.1509
+[1] "cluster update done for 1"
+[1] 5.067396
+[1] "cluster update done for 2"
+[1] 13.79994
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 26"
+Time difference of 6.346813 secs
+[1] 72 57 46
+[1] 160.3402
+[1] "cluster update done for 1"
+[1] 5.210764
+[1] "cluster update done for 2"
+[1] 14.08993
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 27"
+Time difference of 5.77647 secs
+[1] 71 58 46
+[1] 190.0377
+[1] "cluster update done for 1"
+[1] 5.286898
+[1] "cluster update done for 2"
+[1] 14.55663
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 28"
+Time difference of 6.157685 secs
+[1] 71 58 46
+[1] 187.5046
+[1] "cluster update done for 1"
+[1] 5.118307
+[1] "cluster update done for 2"
+[1] 14.35309
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 29"
+Time difference of 4.721897 secs
+[1] "MCMC main iter = 30"
+[1] 72 57 46
+[1] 169.9136
+[1] "cluster update done for 1"
+[1] 5.080491
+[1] "cluster update done for 2"
+[1] 13.90513
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 30"
+Time difference of 4.745046 secs
+[1] 71 58 46
+[1] 167.4659
+[1] "cluster update done for 1"
+[1] 5.215497
+[1] "cluster update done for 2"
+[1] 13.79172
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 31"
+Time difference of 7.434079 secs
+[1] 71 58 46
+[1] 189.9551
+[1] "cluster update done for 1"
+[1] 5.339353
+[1] "cluster update done for 2"
+[1] 13.97463
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 32"
+Time difference of 5.861917 secs
+[1] 71 58 46
+[1] 187.1444
+[1] "cluster update done for 1"
+[1] 5.230031
+[1] "cluster update done for 2"
+[1] 13.45388
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 33"
+Time difference of 6.860633 secs
+[1] 71 58 46
+[1] 169.5242
+[1] "cluster update done for 1"
+[1] 5.261708
+[1] "cluster update done for 2"
+[1] 14.35402
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 34"
+Time difference of 6.263385 secs
+[1] 71 58 46
+[1] 184.0185
+[1] "cluster update done for 1"
+[1] 5.168292
+[1] "cluster update done for 2"
+[1] 14.44422
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 35"
+Time difference of 5.366671 secs
+[1] 72 57 46
+[1] 155.8434
+[1] "cluster update done for 1"
+[1] 5.181191
+[1] "cluster update done for 2"
+[1] 14.45125
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 36"
+Time difference of 6.694038 secs
+[1] 72 57 46
+[1] 157.5641
+[1] "cluster update done for 1"
+[1] 4.995669
+[1] "cluster update done for 2"
+[1] 13.40729
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 37"
+Time difference of 5.445322 secs
+[1] 71 58 46
+[1] 167.3944
+[1] "cluster update done for 1"
+[1] 5.075985
+[1] "cluster update done for 2"
+[1] 14.41436
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 38"
+Time difference of 6.891457 secs
+[1] 72 57 46
+[1] 171.0109
+[1] "cluster update done for 1"
+[1] 4.811878
+[1] "cluster update done for 2"
+[1] 14.30545
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 39"
+Time difference of 6.062888 secs
+[1] "MCMC main iter = 40"
+[1] 70 59 46
+[1] 185.9559
+[1] "cluster update done for 1"
+[1] 5.059441
+[1] "cluster update done for 2"
+[1] 14.01039
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 40"
+Time difference of 5.759035 secs
+[1] 71 58 46
+[1] 189.0698
+[1] "cluster update done for 1"
+[1] 5.161521
+[1] "cluster update done for 2"
+[1] 14.14942
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 41"
+Time difference of 5.618869 secs
+[1] 71 58 46
+[1] 188.0224
+[1] "cluster update done for 1"
+[1] 5.265783
+[1] "cluster update done for 2"
+[1] 14.00478
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 42"
+Time difference of 4.481561 secs
+[1] 71 58 46
+[1] 190.4825
+[1] "cluster update done for 1"
+[1] 5.186468
+[1] "cluster update done for 2"
+[1] 13.82597
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 43"
+Time difference of 6.77167 secs
+[1] 71 58 46
+[1] 178.036
+[1] "cluster update done for 1"
+[1] 5.095942
+[1] "cluster update done for 2"
+[1] 13.47866
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 44"
+Time difference of 4.58096 secs
+[1] 71 59 45
+[1] 187.785
+[1] "cluster update done for 1"
+[1] 4.557173
+[1] "cluster update done for 2"
+[1] 13.60028
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 45"
+Time difference of 5.103856 secs
+[1] 71 58 46
+[1] 181.3215
+[1] "cluster update done for 1"
+[1] 5.190716
+[1] "cluster update done for 2"
+[1] 13.86545
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 46"
+Time difference of 5.135359 secs
+[1] 71 59 45
+[1] 190.28
+[1] "cluster update done for 1"
+[1] 4.487882
+[1] "cluster update done for 2"
+[1] 15.58954
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 47"
+Time difference of 4.747119 secs
+[1] 71 58 46
+[1] 188.801
+[1] "cluster update done for 1"
+[1] 5.022312
+[1] "cluster update done for 2"
+[1] 14.23692
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 48"
+Time difference of 6.220349 secs
+[1] 72 57 46
+[1] 162.1325
+[1] "cluster update done for 1"
+[1] 5.143624
+[1] "cluster update done for 2"
+[1] 13.26151
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 49"
+Time difference of 13.88541 secs
+[1] "MCMC main iter = 50"
+[1] 71 58 46
+[1] 189.6586
+[1] "cluster update done for 1"
+[1] 5.27093
+[1] "cluster update done for 2"
+[1] 14.06009
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 50"
+Time difference of 14.92644 secs
+[1] 71 58 46
+[1] 188.8642
+[1] "cluster update done for 1"
+[1] 5.196799
+[1] "cluster update done for 2"
+[1] 13.97503
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 51"
+Time difference of 11.63936 secs
+[1] 72 57 46
+[1] 172.4383
+[1] "cluster update done for 1"
+[1] 5.143791
+[1] "cluster update done for 2"
+[1] 13.61329
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 52"
+Time difference of 5.778186 secs
+[1] 71 57 47
+[1] 177.1575
+[1] "cluster update done for 1"
+[1] 5.534371
+[1] "cluster update done for 2"
+[1] 10.98178
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 53"
+Time difference of 7.551036 secs
+[1] 72 57 46
+[1] 149.2802
+[1] "cluster update done for 1"
+[1] 5.115439
+[1] "cluster update done for 2"
+[1] 14.34582
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 54"
+Time difference of 5.787405 secs
+[1] 71 58 46
+[1] 189.6151
+[1] "cluster update done for 1"
+[1] 4.656206
+[1] "cluster update done for 2"
+[1] 13.81062
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 55"
+Time difference of 11.80589 secs
+[1] 71 58 46
+[1] 191.2442
+[1] "cluster update done for 1"
+[1] 5.120811
+[1] "cluster update done for 2"
+[1] 14.22451
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 56"
+Time difference of 18.32532 secs
+[1] 71 58 46
+[1] 188.9524
+[1] "cluster update done for 1"
+[1] 5.096026
+[1] "cluster update done for 2"
+[1] 14.12524
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 57"
+Time difference of 15.84687 secs
+[1] 71 58 46
+[1] 189.1487
+[1] "cluster update done for 1"
+[1] 5.172017
+[1] "cluster update done for 2"
+[1] 14.33822
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 58"
+Time difference of 9.340721 secs
+[1] 71 58 46
+[1] 188.1444
+[1] "cluster update done for 1"
+[1] 5.110007
+[1] "cluster update done for 2"
+[1] 14.48208
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 59"
+Time difference of 5.031959 secs
+[1] "MCMC main iter = 60"
+[1] 71 58 46
+[1] 189.9119
+[1] "cluster update done for 1"
+[1] 5.247876
+[1] "cluster update done for 2"
+[1] 14.16963
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 60"
+Time difference of 4.402406 secs
+[1] 72 57 46
+[1] 169.9195
+[1] "cluster update done for 1"
+[1] 5.222148
+[1] "cluster update done for 2"
+[1] 14.05066
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 61"
+Time difference of 6.908164 secs
+[1] 71 58 46
+[1] 189.9537
+[1] "cluster update done for 1"
+[1] 5.075387
+[1] "cluster update done for 2"
+[1] 14.08423
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 62"
+Time difference of 5.813831 secs
+[1] 72 57 46
+[1] 168.4398
+[1] "cluster update done for 1"
+[1] 5.047172
+[1] "cluster update done for 2"
+[1] 14.28612
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 63"
+Time difference of 7.218298 secs
+[1] 71 58 46
+[1] 182.7877
+[1] "cluster update done for 1"
+[1] 5.207106
+[1] "cluster update done for 2"
+[1] 14.13602
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 64"
+Time difference of 4.455578 secs
+[1] 72 57 46
+[1] 162.9553
+[1] "cluster update done for 1"
+[1] 5.195785
+[1] "cluster update done for 2"
+[1] 14.1963
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 65"
+Time difference of 4.66006 secs
+[1] 72 57 46
+[1] 167.9995
+[1] "cluster update done for 1"
+[1] 5.333775
+[1] "cluster update done for 2"
+[1] 13.07589
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 66"
+Time difference of 5.571274 secs
+[1] 71 58 46
+[1] 189.2466
+[1] "cluster update done for 1"
+[1] 5.319733
+[1] "cluster update done for 2"
+[1] 14.27077
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 67"
+Time difference of 5.504152 secs
+[1] 72 57 46
+[1] 156.2557
+[1] "cluster update done for 1"
+[1] 5.018638
+[1] "cluster update done for 2"
+[1] 14.42242
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 68"
+Time difference of 5.234563 secs
+[1] 71 58 46
+[1] 186.0329
+[1] "cluster update done for 1"
+[1] 5.302513
+[1] "cluster update done for 2"
+[1] 13.96421
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 69"
+Time difference of 5.094447 secs
+[1] "MCMC main iter = 70"
+[1] 71 58 46
+[1] 185.881
+[1] "cluster update done for 1"
+[1] 5.032397
+[1] "cluster update done for 2"
+[1] 14.2454
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 70"
+Time difference of 5.134552 secs
+[1] 72 57 46
+[1] 166.7802
+[1] "cluster update done for 1"
+[1] 5.210904
+[1] "cluster update done for 2"
+[1] 14.1605
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 71"
+Time difference of 6.914643 secs
+[1] 72 57 46
+[1] 171.0522
+[1] "cluster update done for 1"
+[1] 5.106269
+[1] "cluster update done for 2"
+[1] 14.05678
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 72"
+Time difference of 4.987931 secs
+[1] 71 58 46
+[1] 185.4903
+[1] "cluster update done for 1"
+[1] 5.006778
+[1] "cluster update done for 2"
+[1] 14.62656
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 73"
+Time difference of 4.514288 secs
+[1] 71 58 46
+[1] 189.8078
+[1] "cluster update done for 1"
+[1] 5.257603
+[1] "cluster update done for 2"
+[1] 14.2603
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 74"
+Time difference of 5.341503 secs
+[1] 71 58 46
+[1] 189.7732
+[1] "cluster update done for 1"
+[1] 5.238976
+[1] "cluster update done for 2"
+[1] 13.82516
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 75"
+Time difference of 5.228823 secs
+[1] 72 57 46
+[1] 171.9166
+[1] "cluster update done for 1"
+[1] 5.239378
+[1] "cluster update done for 2"
+[1] 14.43744
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 76"
+Time difference of 6.677361 secs
+[1] 73 55 47
+[1] 140.0859
+[1] "cluster update done for 1"
+[1] 5.427615
+[1] "cluster update done for 2"
+[1] 11.38407
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 77"
+Time difference of 4.427722 secs
+[1] 72 56 47
+[1] 168.3216
+[1] "cluster update done for 1"
+[1] 5.599629
+[1] "cluster update done for 2"
+[1] 11.36582
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 78"
+Time difference of 4.84755 secs
+[1] 71 58 46
+[1] 190.0794
+[1] "cluster update done for 1"
+[1] 5.140656
+[1] "cluster update done for 2"
+[1] 13.82651
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 79"
+Time difference of 6.273108 secs
+[1] "MCMC main iter = 80"
+[1] 71 58 46
+[1] 186.182
+[1] "cluster update done for 1"
+[1] 5.050754
+[1] "cluster update done for 2"
+[1] 13.41475
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 80"
+Time difference of 5.497521 secs
+[1] 71 58 46
+[1] 185.9043
+[1] "cluster update done for 1"
+[1] 5.134778
+[1] "cluster update done for 2"
+[1] 14.41071
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 81"
+Time difference of 7.814693 secs
+[1] 71 58 46
+[1] 184.568
+[1] "cluster update done for 1"
+[1] 5.10888
+[1] "cluster update done for 2"
+[1] 14.15372
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 82"
+Time difference of 5.525482 secs
+[1] 72 57 46
+[1] 169.2004
+[1] "cluster update done for 1"
+[1] 4.78501
+[1] "cluster update done for 2"
+[1] 14.43658
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 83"
+Time difference of 4.598743 secs
+[1] 71 58 46
+[1] 189.8595
+[1] "cluster update done for 1"
+[1] 5.206275
+[1] "cluster update done for 2"
+[1] 13.47537
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 84"
+Time difference of 5.803578 secs
+[1] 71 58 46
+[1] 188.0233
+[1] "cluster update done for 1"
+[1] 4.952224
+[1] "cluster update done for 2"
+[1] 13.81831
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 85"
+Time difference of 4.285424 secs
+[1] 72 57 46
+[1] 163.6844
+[1] "cluster update done for 1"
+[1] 4.942325
+[1] "cluster update done for 2"
+[1] 13.82938
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 86"
+Time difference of 4.126158 secs
+[1] 72 58 45
+[1] 172.4262
+[1] "cluster update done for 1"
+[1] 4.627513
+[1] "cluster update done for 2"
+[1] 15.64284
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 87"
+Time difference of 5.65446 secs
+[1] 71 58 46
+[1] 189.2989
+[1] "cluster update done for 1"
+[1] 5.053863
+[1] "cluster update done for 2"
+[1] 14.09464
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 88"
+Time difference of 4.505424 secs
+[1] 71 59 45
+[1] 187.6745
+[1] "cluster update done for 1"
+[1] 4.309613
+[1] "cluster update done for 2"
+[1] 15.44225
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 89"
+Time difference of 4.782564 secs
+[1] "MCMC main iter = 90"
+[1] 71 58 46
+[1] 172.1208
+[1] "cluster update done for 1"
+[1] 4.981588
+[1] "cluster update done for 2"
+[1] 14.19758
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 90"
+Time difference of 3.84769 secs
+[1] 71 58 46
+[1] 189.2409
+[1] "cluster update done for 1"
+[1] 4.919128
+[1] "cluster update done for 2"
+[1] 14.16483
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 91"
+Time difference of 4.757226 secs
+[1] 71 58 46
+[1] 183.8136
+[1] "cluster update done for 1"
+[1] 5.155922
+[1] "cluster update done for 2"
+[1] 14.1513
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 92"
+Time difference of 4.285587 secs
+[1] 72 57 46
+[1] 171.6742
+[1] "cluster update done for 1"
+[1] 5.115232
+[1] "cluster update done for 2"
+[1] 14.43494
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 93"
+Time difference of 4.241091 secs
+[1] 72 57 46
+[1] 153.6929
+[1] "cluster update done for 1"
+[1] 5.184909
+[1] "cluster update done for 2"
+[1] 13.32337
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 94"
+Time difference of 3.932158 secs
+[1] 71 58 46
+[1] 186.5844
+[1] "cluster update done for 1"
+[1] 4.877528
+[1] "cluster update done for 2"
+[1] 14.21614
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 95"
+Time difference of 5.739253 secs
+[1] 71 58 46
+[1] 187.7762
+[1] "cluster update done for 1"
+[1] 5.243592
+[1] "cluster update done for 2"
+[1] 14.3745
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 96"
+Time difference of 4.115851 secs
+[1] 71 58 46
+[1] 187.4758
+[1] "cluster update done for 1"
+[1] 5.130673
+[1] "cluster update done for 2"
+[1] 14.31557
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 97"
+Time difference of 4.180817 secs
+[1] 71 58 46
+[1] 184.9958
+[1] "cluster update done for 1"
+[1] 4.914241
+[1] "cluster update done for 2"
+[1] 14.33011
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 98"
+Time difference of 4.723768 secs
+[1] 72 58 45
+[1] 170.0965
+[1] "cluster update done for 1"
+[1] 4.45172
+[1] "cluster update done for 2"
+[1] 14.697
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 99"
+Time difference of 5.265892 secs
+[1] "MCMC main iter = 100"
+[1] 71 58 46
+[1] 186.6865
+[1] "cluster update done for 1"
+[1] 5.305644
+[1] "cluster update done for 2"
+[1] 14.2146
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 100"
+Time difference of 5.372516 secs
+[1] 73 56 46
+[1] 143.9694
+[1] "cluster update done for 1"
+[1] 5.161067
+[1] "cluster update done for 2"
+[1] 14.21476
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 101"
+Time difference of 7.046174 secs
+[1] 71 58 46
+[1] 172.1584
+[1] "cluster update done for 1"
+[1] 5.120143
+[1] "cluster update done for 2"
+[1] 14.43052
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 102"
+Time difference of 4.73572 secs
+[1] 71 58 46
+[1] 186.3263
+[1] "cluster update done for 1"
+[1] 4.833899
+[1] "cluster update done for 2"
+[1] 14.24065
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 103"
+Time difference of 5.398027 secs
+[1] 71 58 46
+[1] 188.6279
+[1] "cluster update done for 1"
+[1] 5.140623
+[1] "cluster update done for 2"
+[1] 14.19818
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 104"
+Time difference of 4.31265 secs
+[1] 72 57 46
+[1] 167.6201
+[1] "cluster update done for 1"
+[1] 5.10944
+[1] "cluster update done for 2"
+[1] 14.4618
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 105"
+Time difference of 4.406777 secs
+[1] 72 57 46
+[1] 169.5933
+[1] "cluster update done for 1"
+[1] 5.170792
+[1] "cluster update done for 2"
+[1] 14.37781
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 106"
+Time difference of 5.285801 secs
+[1] 72 57 46
+[1] 170.0927
+[1] "cluster update done for 1"
+[1] 5.196803
+[1] "cluster update done for 2"
+[1] 14.0715
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 107"
+Time difference of 6.739048 secs
+[1] 72 57 46
+[1] 168.4888
+[1] "cluster update done for 1"
+[1] 5.040454
+[1] "cluster update done for 2"
+[1] 13.76244
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 108"
+Time difference of 4.981421 secs
+[1] 72 57 46
+[1] 166.2872
+[1] "cluster update done for 1"
+[1] 5.160157
+[1] "cluster update done for 2"
+[1] 14.18524
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 109"
+Time difference of 6.289381 secs
+[1] "MCMC main iter = 110"
+[1] 72 57 46
+[1] 161.6624
+[1] "cluster update done for 1"
+[1] 4.962383
+[1] "cluster update done for 2"
+[1] 14.50513
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 110"
+Time difference of 4.687086 secs
+[1] 72 57 46
+[1] 153.0786
+[1] "cluster update done for 1"
+[1] 5.213907
+[1] "cluster update done for 2"
+[1] 13.85169
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 111"
+Time difference of 6.743649 secs
+[1] 72 57 46
+[1] 169.1592
+[1] "cluster update done for 1"
+[1] 5.134072
+[1] "cluster update done for 2"
+[1] 14.33925
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 112"
+Time difference of 4.730412 secs
+[1] 72 57 46
+[1] 170.558
+[1] "cluster update done for 1"
+[1] 5.267427
+[1] "cluster update done for 2"
+[1] 12.85913
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 113"
+Time difference of 5.41333 secs
+[1] 71 58 46
+[1] 182.1044
+[1] "cluster update done for 1"
+[1] 5.286979
+[1] "cluster update done for 2"
+[1] 14.30172
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 114"
+Time difference of 6.360759 secs
+[1] 72 57 46
+[1] 166.7456
+[1] "cluster update done for 1"
+[1] 5.106383
+[1] "cluster update done for 2"
+[1] 14.46063
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 115"
+Time difference of 5.405625 secs
+[1] 71 58 46
+[1] 189.7575
+[1] "cluster update done for 1"
+[1] 5.193123
+[1] "cluster update done for 2"
+[1] 13.73145
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 116"
+Time difference of 8.837725 secs
+[1] 71 58 46
+[1] 190.0076
+[1] "cluster update done for 1"
+[1] 5.177267
+[1] "cluster update done for 2"
+[1] 13.80487
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 117"
+Time difference of 10.41175 secs
+[1] 71 58 46
+[1] 186.8194
+[1] "cluster update done for 1"
+[1] 5.008059
+[1] "cluster update done for 2"
+[1] 14.40371
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 118"
+Time difference of 9.74556 secs
+[1] 71 58 46
+[1] 179.2947
+[1] "cluster update done for 1"
+[1] 5.215237
+[1] "cluster update done for 2"
+[1] 14.32899
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 119"
+Time difference of 6.454876 secs
+[1] "MCMC main iter = 120"
+[1] 71 58 46
+[1] 189.7833
+[1] "cluster update done for 1"
+[1] 5.163258
+[1] "cluster update done for 2"
+[1] 13.84185
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 120"
+Time difference of 5.296224 secs
+[1] 72 57 46
+[1] 165.2292
+[1] "cluster update done for 1"
+[1] 5.15766
+[1] "cluster update done for 2"
+[1] 13.55861
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 121"
+Time difference of 5.658267 secs
+[1] 71 58 46
+[1] 187.4763
+[1] "cluster update done for 1"
+[1] 5.198071
+[1] "cluster update done for 2"
+[1] 13.89619
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 122"
+Time difference of 5.478593 secs
+[1] 71 58 46
+[1] 188.8805
+[1] "cluster update done for 1"
+[1] 5.148239
+[1] "cluster update done for 2"
+[1] 14.05186
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 123"
+Time difference of 5.661764 secs
+[1] 72 57 46
+[1] 169.6407
+[1] "cluster update done for 1"
+[1] 5.186258
+[1] "cluster update done for 2"
+[1] 13.72006
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 124"
+Time difference of 5.273414 secs
+[1] 71 58 46
+[1] 181.5722
+[1] "cluster update done for 1"
+[1] 5.287811
+[1] "cluster update done for 2"
+[1] 14.08029
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 125"
+Time difference of 4.934863 secs
+[1] 71 58 46
+[1] 186.585
+[1] "cluster update done for 1"
+[1] 5.198838
+[1] "cluster update done for 2"
+[1] 13.9189
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 126"
+Time difference of 5.870844 secs
+[1] 71 58 46
+[1] 187.718
+[1] "cluster update done for 1"
+[1] 5.271704
+[1] "cluster update done for 2"
+[1] 14.31196
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 127"
+Time difference of 6.040043 secs
+[1] 72 57 46
+[1] 171.6055
+[1] "cluster update done for 1"
+[1] 5.23058
+[1] "cluster update done for 2"
+[1] 13.58048
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 128"
+Time difference of 6.856704 secs
+[1] 71 58 46
+[1] 189.2362
+[1] "cluster update done for 1"
+[1] 5.268031
+[1] "cluster update done for 2"
+[1] 13.89088
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 129"
+Time difference of 4.505461 secs
+[1] "MCMC main iter = 130"
+[1] 72 57 46
+[1] 171.6583
+[1] "cluster update done for 1"
+[1] 5.17009
+[1] "cluster update done for 2"
+[1] 13.6303
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 130"
+Time difference of 4.957688 secs
+[1] 71 58 46
+[1] 188.9423
+[1] "cluster update done for 1"
+[1] 5.27982
+[1] "cluster update done for 2"
+[1] 13.92055
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 131"
+Time difference of 6.304427 secs
+[1] 71 58 46
+[1] 185.9198
+[1] "cluster update done for 1"
+[1] 4.957016
+[1] "cluster update done for 2"
+[1] 14.38505
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 132"
+Time difference of 5.040502 secs
+[1] 72 57 46
+[1] 167.5593
+[1] "cluster update done for 1"
+[1] 4.86411
+[1] "cluster update done for 2"
+[1] 13.82948
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 133"
+Time difference of 4.567922 secs
+[1] 72 57 46
+[1] 171.4378
+[1] "cluster update done for 1"
+[1] 5.195999
+[1] "cluster update done for 2"
+[1] 14.12573
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 134"
+Time difference of 6.98178 secs
+[1] 71 58 46
+[1] 187.2131
+[1] "cluster update done for 1"
+[1] 5.087995
+[1] "cluster update done for 2"
+[1] 14.20297
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 135"
+Time difference of 5.540825 secs
+[1] 72 56 47
+[1] 169.6972
+[1] "cluster update done for 1"
+[1] 5.519225
+[1] "cluster update done for 2"
+[1] 11.21347
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 136"
+Time difference of 12.52951 secs
+[1] 71 57 47
+[1] 190.4129
+[1] "cluster update done for 1"
+[1] 5.524232
+[1] "cluster update done for 2"
+[1] 11.7607
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 137"
+Time difference of 14.7665 secs
+[1] 72 57 46
+[1] 171.7773
+[1] "cluster update done for 1"
+[1] 5.087738
+[1] "cluster update done for 2"
+[1] 14.11977
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 138"
+Time difference of 9.566416 secs
+[1] 72 57 46
+[1] 163.2831
+[1] "cluster update done for 1"
+[1] 5.08146
+[1] "cluster update done for 2"
+[1] 14.33983
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 139"
+Time difference of 4.413611 secs
+[1] "MCMC main iter = 140"
+[1] 71 58 46
+[1] 188.9335
+[1] "cluster update done for 1"
+[1] 5.20141
+[1] "cluster update done for 2"
+[1] 13.90592
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 140"
+Time difference of 4.419585 secs
+[1] 71 58 46
+[1] 185.8766
+[1] "cluster update done for 1"
+[1] 5.081359
+[1] "cluster update done for 2"
+[1] 14.08388
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 141"
+Time difference of 5.400042 secs
+[1] 71 57 47
+[1] 190.4281
+[1] "cluster update done for 1"
+[1] 5.509614
+[1] "cluster update done for 2"
+[1] 11.50763
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 142"
+Time difference of 6.029225 secs
+[1] 71 58 46
+[1] 190.9943
+[1] "cluster update done for 1"
+[1] 5.003554
+[1] "cluster update done for 2"
+[1] 14.36906
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 143"
+Time difference of 4.864282 secs
+[1] 72 57 46
+[1] 172.0632
+[1] "cluster update done for 1"
+[1] 5.278803
+[1] "cluster update done for 2"
+[1] 14.45276
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 144"
+Time difference of 13.84639 secs
+[1] 71 58 46
+[1] 188.2177
+[1] "cluster update done for 1"
+[1] 5.139347
+[1] "cluster update done for 2"
+[1] 13.5931
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update done 145"
+Time difference of 14.19636 secs
+[1] 71 58 46
+[1] 189.0894
+
+Execution halted

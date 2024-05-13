@@ -1,0 +1,7 @@
+### make -f Makefile_del
+### gsl2.2 installation directory
+##/Users/subhajit/SOFTWARES/gsl-2.2.1/GSL_install
+
+all: del_hyper_2by2
+del_hyper_2by2: del_hyper_2by2.c	
+	gcc -g -I/usr/local/include -Wall -o del_hyper_2by2 del_hyper_2by2.c -L/usr/local/lib -lgsl -lgslcblas -lm  

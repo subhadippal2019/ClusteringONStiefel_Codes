@@ -1,0 +1,16 @@
+analyse_MCMC_sample.R:calculate_DIC <-function(MCMC_sample,data,burn_in){
+analyse_MCMC_sample.R:calculate_DIC_4 <- function(data_with_init_with_MCMC_samples){
+analyse_MCMC_sample.R:calculate_DIC_5 <- function(data_with_init_with_MCMC_samples){
+analyse_MCMC_sample.R:calculate_DIC_6 <- function(data_with_init_with_MCMC_samples){
+analyse_MCMC_sample.R:calculate_DIC_7 <- function(data_with_init_with_MCMC_samples){
+analyse_MCMC_sample.R:calculate_DIC_8 <- function(data_with_init_with_MCMC_samples){
+analyse_MCMC_sample.R:calculate_DIC_4_5_6_7_8 <-function(data_with_init_with_MCMC_samples){
+calc_dic_4_5_6.R:    dic = calculate_DIC_4_5_6_7_8(data_with_init_with_MCMC_samples)
+calc_dic_4_5_6.R:    #dic5 = calculate_DIC_5(data_with_init_with_MCMC_samples)
+calc_dic_4_5_6.R:    #dic6 = calculate_DIC_6(data_with_init_with_MCMC_samples)
+calc_dic_4_5_6.R:    dic = calculate_DIC_4_5_6_7_8(data_with_init_with_MCMC_samples)
+calc_dic_4_5_6.R:    #dic5 = calculate_DIC_5(data_with_init_with_MCMC_samples)
+calc_dic_4_5_6.R:    #dic6 = calculate_DIC_6(data_with_init_with_MCMC_samples)
+calc_dic_4_5_6.R:  res = calculate_DIC_5(data_with_MCMC_sample)
+result_generate_summary.R:      DIC_table[k,i] = calculate_DIC(MCMC_sample,data,burn_in)
+result_generate_summary.R:    DIC_table[j] = calculate_DIC(MCMC_sample,data,burn_in)

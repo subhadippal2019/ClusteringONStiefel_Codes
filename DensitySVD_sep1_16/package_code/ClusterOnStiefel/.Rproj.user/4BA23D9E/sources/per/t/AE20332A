@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1594222419913.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1801842147",
+    "id" : "AE20332A",
+    "lastKnownWriteTime" : 1594222605,
+    "last_content_update" : 1594222605773,
+    "path" : "C:/Users/subha/Dropbox/projects/ClusteringDTIonStiefel/DensitySVD_sep1_16/package_code/ClusterOnStiefel/src/functions_hyper_2by2_R.c",
+    "project_path" : "src/functions_hyper_2by2_R.c",
+    "properties" : {
+        "cursorPosition" : "4,16",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "c"
+}

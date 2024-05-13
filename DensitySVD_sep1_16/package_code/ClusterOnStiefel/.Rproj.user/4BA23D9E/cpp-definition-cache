@@ -1,0 +1,62 @@
+[
+    {
+        "definitions" : [
+            {
+                "column" : 7,
+                "file" : "C:/Users/subha/Dropbox/projects/ClusteringDTIonStiefel/DensitySVD_sep1_16/package_code/ClusterOnStiefel/src/functions_hyper_2by2_R.c",
+                "kind" : 6,
+                "line" : 20,
+                "name" : "hyper_2by2_R(double *, double *, double *)",
+                "parent_name" : "",
+                "usr" : "c:@F@hyper_2by2_R#*d#S0_#S0_#"
+            },
+            {
+                "column" : 7,
+                "file" : "C:/Users/subha/Dropbox/projects/ClusteringDTIonStiefel/DensitySVD_sep1_16/package_code/ClusterOnStiefel/src/functions_hyper_2by2_R.c",
+                "kind" : 6,
+                "line" : 49,
+                "name" : "partial_d1_hyper_2by2_R(double *, double *, double *)",
+                "parent_name" : "",
+                "usr" : "c:@F@partial_d1_hyper_2by2_R#*d#S0_#S0_#"
+            },
+            {
+                "column" : 7,
+                "file" : "C:/Users/subha/Dropbox/projects/ClusteringDTIonStiefel/DensitySVD_sep1_16/package_code/ClusterOnStiefel/src/functions_hyper_2by2_R.c",
+                "kind" : 6,
+                "line" : 83,
+                "name" : "partial_d1_partial_d1_hyper_2by2_R(double *, double *, double *)",
+                "parent_name" : "",
+                "usr" : "c:@F@partial_d1_partial_d1_hyper_2by2_R#*d#S0_#S0_#"
+            },
+            {
+                "column" : 6,
+                "file" : "C:/Users/subha/Dropbox/projects/ClusteringDTIonStiefel/DensitySVD_sep1_16/package_code/ClusterOnStiefel/src/functions_hyper_2by2_R.c",
+                "kind" : 6,
+                "line" : 119,
+                "name" : "partial_d2_hyper_2by2_R(double *, double *, double *)",
+                "parent_name" : "",
+                "usr" : "c:@F@partial_d2_hyper_2by2_R#*d#S0_#S0_#"
+            },
+            {
+                "column" : 6,
+                "file" : "C:/Users/subha/Dropbox/projects/ClusteringDTIonStiefel/DensitySVD_sep1_16/package_code/ClusterOnStiefel/src/functions_hyper_2by2_R.c",
+                "kind" : 6,
+                "line" : 153,
+                "name" : "partial_d2_partial_d2_hyper_2by2_R(double *, double *, double *)",
+                "parent_name" : "",
+                "usr" : "c:@F@partial_d2_partial_d2_hyper_2by2_R#*d#S0_#S0_#"
+            },
+            {
+                "column" : 6,
+                "file" : "C:/Users/subha/Dropbox/projects/ClusteringDTIonStiefel/DensitySVD_sep1_16/package_code/ClusterOnStiefel/src/functions_hyper_2by2_R.c",
+                "kind" : 6,
+                "line" : 189,
+                "name" : "partial_d1_partial_d2_hyper_2by2_R(double *, double *, double *)",
+                "parent_name" : "",
+                "usr" : "c:@F@partial_d1_partial_d2_hyper_2by2_R#*d#S0_#S0_#"
+            }
+        ],
+        "file" : "C:/Users/subha/Dropbox/projects/ClusteringDTIonStiefel/DensitySVD_sep1_16/package_code/ClusterOnStiefel/src/functions_hyper_2by2_R.c",
+        "file_last_write" : 1594222605
+    }
+]

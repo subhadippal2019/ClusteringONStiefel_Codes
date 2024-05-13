@@ -1,0 +1,4 @@
+nclust_3_realNEC.RData	3	66074.3965912423
+nclust_4_realNEC.RData	4	2284.55633138823
+nclust_5_realNEC.RData	5	2410.33465377375
+nclust_6_realNEC.RData	6	2218.9928770481

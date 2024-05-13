@@ -1,0 +1,500 @@
+
+R version 3.3.1 (2016-06-21) -- "Bug in Your Hair"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin13.4.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> 
+> 
+> #R CMD BATCH --no-save --no-restore '--args ./ML_dataset_4_2.Rdata 2' ./runAllCode.R ./run2.log
+> 
+> rm(list=ls(all=TRUE))
+> args <- commandArgs(TRUE)
+> source("generate_simulated_data_ML.R")
+> source("finiteMixtureML.R")
+> set.seed(72357)
+> 
+> 
+> #L = generate_simulated_data_ML(N=300)
+> load(args[[1]])
+> n_clust_to_run = as.numeric(args[[2]])
+> 
+> for(i in n_clust_to_run){
++   
++   nClust = i
++ 
++   true_nClust = strsplit(args[[1]],"[_.]")[[1]][4]
++   data_id = strsplit(args[[1]],"[_.]")[[1]][5]
++  
++   ##data,nc,max_iter=2,run_id=1 
++   MCMC_sample = finiteMixtureML(L$data,nClust,max_iter=2000,run_id=as.numeric(data_id))
++   
++   out_file_name = sprintf("output_nclust_%d_data_id_%s_true_nClust_%s.RData",nClust,data_id,true_nClust)
++   
++   data_with_MCMC_sample = NULL
++   data_with_MCMC_sample$L = L
++   data_with_MCMC_sample$MCMC_sample = MCMC_sample
++   save(data_with_MCMC_sample,file=out_file_name)
++   #load("MCMC_sample.Rdata")
++   #analyse_MCMC_sample(MCMC_sample)
++   #plot_mcmc_sample_D(MCMC_sample,L)
++   
++ }  
+[1] "Wed Nov  2 20:30:43 2016"
+Loading required package: Matrix
+
+Attaching package: ‘expm’
+
+The following object is masked from ‘package:Matrix’:
+
+    expm
+
+[1] "inside bivariate NR method for updating d1 and d2"
+[1] 4.563000 3.747252
+[1] "inside bivariate NR method for updating d1 and d2"
+[1] 5.808384 3.558837
+[1] "inside bivariate NR method for updating d1 and d2"
+[1] 7.611255 4.906534
+[1] "Wed Nov  2 20:30:52 2016"
+[1] "using vague hyper-parameters"
+[1] 1659 1722 1619
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 1"
+[1] 1667 1697 1636
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 2"
+[1] 1658 1688 1654
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 3"
+[1] 1656 1695 1649
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 4"
+[1] 1657 1697 1646
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 5"
+[1] 1662 1683 1655
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 6"
+[1] 1656 1682 1662
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 7"
+[1] 1664 1675 1661
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 8"
+[1] 1660 1681 1659
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 9"
+[1] "MCMC main iter = 10"
+[1] 1661 1690 1649
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 10"
+[1] 1656 1689 1655
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 11"
+[1] 1661 1686 1653
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 12"
+[1] 1669 1681 1650
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 13"
+[1] 1665 1679 1656
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 14"
+[1] 1658 1693 1649
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 15"
+[1] 1654 1689 1657
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 16"
+[1] 1662 1693 1645
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 17"
+[1] 1662 1695 1643
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 18"
+[1] 1672 1677 1651
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 19"
+[1] "MCMC main iter = 20"
+[1] 1664 1674 1662
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 20"
+[1] 1665 1670 1665
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 21"
+[1] 1666 1682 1652
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 22"
+[1] 1666 1670 1664
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 23"
+[1] 1658 1689 1653
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 24"
+[1] 1663 1686 1651
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 25"
+[1] 1660 1690 1650
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 26"
+[1] 1655 1691 1654
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 27"
+[1] 1661 1670 1669
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 28"
+[1] 1660 1681 1659
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 29"
+[1] "MCMC main iter = 30"
+[1] 1664 1680 1656
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 30"
+[1] 1665 1690 1645
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 31"
+[1] 1662 1684 1654
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 32"
+[1] 1657 1691 1652
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 33"
+[1] 1656 1693 1651
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 34"
+[1] 1666 1685 1649
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 35"
+[1] 1671 1685 1644
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 36"
+[1] 1659 1689 1652
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 37"
+[1] 1665 1678 1657
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 38"
+[1] 1664 1688 1648
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 39"
+[1] "MCMC main iter = 40"
+[1] 1657 1692 1651
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 40"
+[1] 1658 1680 1662
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 41"
+[1] 1656 1683 1661
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 42"
+[1] 1654 1686 1660
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 43"
+[1] 1664 1687 1649
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 44"
+[1] 1665 1683 1652
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 45"
+[1] 1659 1694 1647
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 46"
+[1] 1664 1680 1656
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 47"
+[1] 1668 1685 1647
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 48"
+[1] 1661 1691 1648
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 49"
+[1] "MCMC main iter = 50"
+[1] 1668 1693 1639
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 50"
+[1] 1659 1687 1654
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 51"
+[1] 1667 1670 1663
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 52"
+[1] 1663 1687 1650
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 53"
+[1] 1671 1677 1652
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 54"
+[1] 1667 1686 1647
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 55"
+[1] 1655 1683 1662
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 56"
+[1] 1662 1687 1651
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 57"
+[1] 1663 1694 1643
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 58"
+[1] 1663 1684 1653
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 59"
+[1] "MCMC main iter = 60"
+[1] 1664 1682 1654
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 60"
+[1] 1662 1680 1658
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 61"
+[1] 1658 1679 1663
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 62"
+[1] 1663 1684 1653
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 63"
+[1] 1663 1685 1652
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 64"
+[1] 1669 1676 1655
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 65"
+[1] 1670 1689 1641
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 66"
+[1] 1658 1683 1659
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 67"
+[1] 1662 1682 1656
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 68"
+[1] 1666 1683 1651
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 69"
+[1] "MCMC main iter = 70"
+[1] 1665 1679 1656
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 70"
+[1] 1653 1681 1666
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 71"
+[1] 1657 1685 1658
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 72"
+[1] 1661 1686 1653
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 73"
+[1] 1654 1685 1661
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 74"
+[1] 1667 1683 1650
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 75"
+[1] 1663 1690 1647
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 76"
+[1] 1656 1678 1666
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 77"
+[1] 1661 1683 1656
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 78"
+[1] 1652 1685 1663
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 79"
+[1] "MCMC main iter = 80"
+[1] 1654 1681 1665
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 80"
+[1] 1658 1689 1653
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 81"
+[1] 1666 1684 1650
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 82"
+[1] 1654 1681 1665
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 83"
+[1] 1658 1674 1668
+[1] "cluster update done for 1"
+[1] "cluster update done for 2"
+[1] "cluster update done for 3"
+[1] "Mixture modeling: MCMC iteration update 84"
